@@ -1,6 +1,6 @@
 
 from Tkinter import *
-import Graphics
+import graphics
 import time
 '''
 def present(message, showFor):
@@ -52,38 +52,3 @@ class FadeToplevel(Toplevel):
             self.after(self.showFor/10, self.fade_out)
         if alpha == 0:
             self.destroy()
-
-'''
-class FadeOutNotification(tk.Frame):
-    def __init__(self, parent, message, showFor):
-        tk.Frame.__init__(self, parent)
-        self.parent = parent
-        self.message = message
-        self.showFor = showFor
-        l = tk.Label(self, text=message)
-        l.pack()
-
-    def quit(self):
-        self.fade_away()
-
-    def fade_away(self):
-        alpha = self.parent.attributes("-alpha")
-        if alpha > 0:
-            alpha -= .1
-            self.parent.attributes("-alpha", alpha)
-            self.after(self.showFor, self.fade_away)
-        else:
-            self.parent.destroy()
-
-def showNotification(message, showFor):
-
-    root = self.parent
-
-    
-
-    ex = FadeOutNotification(root, message, showFor)
-    ex.pack(fill="both", expand=True)
-    FadeOutNotification.quit(ex)
-    root.mainloop()
-
-    '''
